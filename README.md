@@ -1,4 +1,4 @@
-### Project Requirements
+ ### Project Requirements
 
 1. **Setup Server with EJS:**
    - Configure your server to use EJS as the view engine.
