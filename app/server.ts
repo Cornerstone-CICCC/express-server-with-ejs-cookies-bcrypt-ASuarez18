@@ -3,6 +3,8 @@ import * as path from "path";
 import * as url from "url";
 import expressLayouts from "express-ejs-layouts";
 import cookieParser from "cookie-parser";
+import cookieSession from "cookie-session";
+
 
 import homeRoutes from "./routes/homeRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -17,6 +19,13 @@ const __dirname = path.dirname(__filename);
 
 // > Initialize cookie parser middleware
 app.use(cookieParser());
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1", "key2", "key3"],
+    maxAge: 1 * 2 * 60 * 1000, //  2mins
+  }),
+);
 
 // Static files from public directory
 app.use(express.static(path.join(__dirname, "public")));

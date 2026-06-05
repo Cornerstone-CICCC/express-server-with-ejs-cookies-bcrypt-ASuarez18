@@ -5,10 +5,10 @@ export const requireAuth = (
   res: express.Response,
   next: express.NextFunction,
 ) => {
-  if (!req.session?.username) {
+  if (!req.session?.email) {
     return res
-      .status(401)
-      .json({ message: "You are not authorized to view this page" });
+      .status(401).redirect("/login");
+      // .json({ message: "You are not authorized to view this page" });
   } else {
     next();
   }

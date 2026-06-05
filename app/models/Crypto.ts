@@ -12,7 +12,3 @@ export async function verifyPassword(
 ): Promise<boolean> {
   return await bcrypt.compare(inputPassword, storedHash);
 }
-
-const hash = await hashPassword("Pass123");
-const isSame = await verifyPassword("Pass123", hash);
-
